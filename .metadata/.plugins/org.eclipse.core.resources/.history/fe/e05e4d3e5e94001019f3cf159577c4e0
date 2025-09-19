@@ -1,0 +1,28 @@
+package com.oopsw.action;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+
+import com.oopsw.model.MemberDAO;
+import com.oopsw.model.MemberVO;
+
+public class LoginAction implements Action{
+
+	@Override
+	public String execute(HttpServletRequest request) throws ServletException, IOException {
+		String url = "login.html";
+		
+		String memberId = request.getParameter("memberId");
+		String pw = request.getParameter("pw");
+		
+		boolean result = new MemberDAO().login(new MemberVO(memberId, pw));
+		if (result == true){
+			url = "getVisitors.html";
+		}
+			return url;
+
+	}
+	
+}

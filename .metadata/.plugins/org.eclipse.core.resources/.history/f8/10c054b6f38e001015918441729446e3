@@ -1,0 +1,81 @@
+package test.com.oopsw.domitory;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import com.oopsw.domitory.StudentImpl;
+
+public class JunitStudentTest {
+	static StudentImpl s;
+	
+	@BeforeClass
+	public static void allTestStart() throws Exception {
+		s = new StudentImpl();
+	}
+
+	@AfterClass
+	public static void allTestEnd() throws Exception {
+		System.out.println("allTestEnd()");
+	}
+
+	//@Before
+	public void setUp() throws Exception {
+	}
+
+	//@After
+	public void tearDown() throws Exception {
+	}
+
+	@Test
+	public void getStudentsTest() {
+		assertNotNull(s.getStudents());
+	}
+	@Test
+	public void getDomStudentTest() {
+		assertNotNull(s.getStudent(20220222));
+	}
+	
+	
+	@Test
+	public void updateDomStudentTest(){
+		assertTrue(s.updateDomStudent("S002", 310, "2023-02-27", "2025-12-30", "테스트 해봄"));
+	}
+	
+	@Test
+	public void deleteStudentTest() {
+		assertTrue(s.deleteStudent("S003"));
+	}
+	@Test
+	public void getStudentTest() {
+		assertNotNull(s.getStudent(20220222));
+	}
+	@Test
+	public void addDomStudentTest() {
+		assertTrue(s.addDomStudent("S111", 20210101, 205, "2025-09-11", "2025-11-11", null));
+	}
+	
+	@Test
+	public void searchNameTest() {
+		assertNotNull(s.searchName("연"));
+	}
+	
+	@Test
+	public void searchMajorTest() {
+		assertNotNull(s.searchMajor("컴퓨터"));
+	}
+	
+	@Test
+	public void searchAcademicStatusTest() {
+		assertNotNull(s.searchAcademicStatus("휴학"));
+	}
+	
+	@Test
+	public void searchRoomNumber() {
+		assertNotNull(s.searchRoomNumber(310));
+	}
+}

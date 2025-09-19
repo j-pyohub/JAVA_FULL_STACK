@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+	//학생 정보 입력 - 이름, 성적
+	let name = "홍길동";
+	let score = 100;
+	
+	let s1 = ["홍길동", 100];
+	let s2 = [100, "홍길동"];
+	
+	var student1 = {name:"이순신", score:50};
+	var student2 = {score:70, name:"세종대왕"};
+	var student3 = {name:"전혜영", toString:function(){
+		return this.name;
+	} };
+	student3.score = 1000;
+	
+	for ( var k in student3) {
+		//console.log(k);
+		//console.log(typeof student3[k]);
+		if (typeof student3[k] != 'function')
+			console.log(student3[k]);
+	}
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

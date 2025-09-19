@@ -1,0 +1,12 @@
+package com.oopsw.model;
+
+public class MemberVO {
+	private String memberId;
+	private String pw;
+	private String name;
+	
+	public MemberVO(String memberId, String pw, String name) {
+		// TODO Auto-generated constructor stub
+	}
+	
+}

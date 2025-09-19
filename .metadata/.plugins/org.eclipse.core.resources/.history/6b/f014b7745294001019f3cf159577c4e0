@@ -1,0 +1,9 @@
+package com.oopsw.model;
+
+public class MemberDAO {
+
+	public void addMember(MemberVO memberVO) {
+		
+	}
+
+}

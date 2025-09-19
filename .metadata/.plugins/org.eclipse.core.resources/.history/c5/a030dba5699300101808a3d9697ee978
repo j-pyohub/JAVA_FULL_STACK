@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+홍길동(Id 숨김)님 환영합니다 <a href = "#">logout</a>
+<h1>회원 전용 방명록 등록</h1>
+
+<form>
+	작성자: <input type = "text" value = "홍길동" readonly="readonly">
+
+
+</form>
+</body>
+</html>

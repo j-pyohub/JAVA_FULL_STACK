@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+Xxx님 환영합니다 <a href = "#">logout</a>
+<a href = "#">login</a>
+
+</body>
+</html>

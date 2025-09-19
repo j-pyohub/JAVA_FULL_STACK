@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+	function a1(){ //var로 선언한 것과 동일, 윈도우에 등록
+		console.log("a1", this);
+	};
+	var a2 = function(){
+		console.log("a2", this);
+	};
+	let a3 = function(){ //윈도우에 등록x -> this와 쓸 때 주의
+		console.log("a3", this);
+	};
+	
+	//생성자로 사용할 의도 - 대문자로 정의 권장, 매개인자 변수 권장
+	var Student = function(name, age){};
+	
+	//매서드
+	a1();
+	a2();
+	a3();
+	
+	//생성자 -> 객체 이름 같다 = 클래스가 없더라도 생성 가능
+	new a1(); //new를 하면 이름 자체가 function
+	new a2();
+	new a3();
+	new Student(); //사용자가 원하지 않으면 변수 초기화 생략 가능
+	
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

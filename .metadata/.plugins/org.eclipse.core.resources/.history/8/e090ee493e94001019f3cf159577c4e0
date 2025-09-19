@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>회원가입</h1>
+<form action="controller?cmd=addMemberAction" method="post">
+	id:  <input><span>  OK/중복확인</span><br>
+	pw:  <input type="password"><br>
+	pw확인:  <input type="password"><span>중복체크</span><br>
+	name: <input><br>
+	
+	<input type="submit" value="작성">
+	<input type="reset" value="취소">
+</form>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+	let inputTime = 10;
+	
+	console.log(inputTime >= "9"); //내부적으로 문자열은 숫자로 parsing 함
+	console.log(inputTime === "9"); //'==='는 자료형까지 비교함
+	
+	let message = "0 <= 시간 < 24" //input
+	
+	/////////////////////////////////
+	let inputTime2 = "10";
+	let message2 = "0 <= 시간 < 24"; //input
+	
+	if (inputTime2 >= 0 && inputTime2 < 24){ //UI 코드는 재사용 잘 안하기 때문에, 중첩조건문 사용해도 괜찮음
+		if (inputTime2 >= 9 && inputTime2 < 12){
+			message2 = "오전 수업";
+		} else if (inputTime2 >= 12 && inputTime2 < 14){
+			message2 = "점심";
+		} else if (inputTime2 >= 14 && inputTime2 < 18){
+			message2 = "오후 수업";
+		} else
+			message2 = "자유시간";
+	}
+	
+	document.write("<h1>"+message2+"</h1>"); //output
+</script>
+</head>
+<body>
+
+</body>
+</html>

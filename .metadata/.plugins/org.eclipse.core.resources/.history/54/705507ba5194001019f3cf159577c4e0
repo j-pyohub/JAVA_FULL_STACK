@@ -1,0 +1,30 @@
+package com.oopsw.action;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+
+import com.oopsw.model.MemberVO;
+
+public class AddMemberAction implements Action{
+
+	@Override
+	public String execute(HttpServletRequest request) throws ServletException, IOException {
+		//입력받은 데이터를 DBMS에 등록
+		String url = "addMember.html"; //실패 메시지 페이지
+		
+		//등록에서 문제가 발생 -> 예외 발생
+		
+		
+		String memberId = request.getParameter("memgerId");
+		String pw = request.getParameter("pw");
+		String name = request.getParameter("name");
+		
+		new MemberDAO().addMember(new MemberVO(memberId, pw, name));
+		 /**addMember의 매개인자 종류와 개수를 new MemberVO로 해 놓으면, 요구사항이 변경되어도 인터페이스 구조는 바뀌지 않음.
+		  * -> 구현부만 바꾸면 되기 때문에 유지보수하기 용이함*/
+		return url;
+	}
+	
+}

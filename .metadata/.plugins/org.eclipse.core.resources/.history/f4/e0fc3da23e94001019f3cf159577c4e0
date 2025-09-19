@@ -1,0 +1,5 @@
+package com.oopsw.action;
+
+public class AddMemberAction {
+
+}

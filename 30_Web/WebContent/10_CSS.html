@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+h1 {
+	text-align: center;
+}
+
+div {
+	font-size: 30pt;
+	background-color: yellow;
+}
+
+.title {
+	font-size: 50pt;
+	<!--css는 명시한 게 우선-->
+}
+
+.fontColor {
+	color: green;
+}
+
+#idType {
+	color: red
+}
+</style>
+</head>
+<body>
+	<h1> main page </h1>
+	<ul>
+		<li>menuA</li>
+		<li>menuB</li>
+		<li>menuC</li>
+	</ul> <!-- ul과 li는 짝꿍. 메뉴 역할로 제일 많이 쓰는 게 list -->
+	<div class = "title fontColor" id = "idType"> 글 제목</div>
+	<div id = "idType" style = "color: pink"> 글 내용</div> <!-- id는 유일한 값인 식별자 역할로 쓰도록 권장 -->
+	
+	<a class = "title"> 외부 사이트 연결 </a>
+	<img src="./img/g.png">
+</body>
+</html>

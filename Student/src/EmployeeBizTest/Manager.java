@@ -1,0 +1,28 @@
+package com.eun.co.kr;
+
+public class Manager extends Employee{
+	
+	private String officeNumber; //사무실번호
+
+	
+	public Manager(String number, String name, String officeNumber) {
+		super(number, name);
+		setOfficeNumber(officeNumber);
+	}
+
+	public String getOfficeNumber() {
+		return officeNumber;
+	}
+
+	public void setOfficeNumber(String officeNumber) {
+		this.officeNumber = officeNumber;
+	}
+
+	@Override
+	public String toString() {
+		return super.toString() +" ,officeNumber=" + officeNumber + "\n";
+	}
+
+	
+	
+}

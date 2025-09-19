@@ -1,0 +1,22 @@
+<!-- 표수정 -->
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src = "31_Event.js">
+
+</script>
+</head>
+<body>
+	<input type = "number" min="2" max="9">
+	<input type = "number" min="2" max="9">
+	<button>계산하기</button>
+	<h3></h3>
+<script type="text/javascript"> //이 부분 javascript도 따로 만들어서 관리하는 게 나음. head/body 따로 해도 됨.
+	let numberList = document.querySelectorAll("input");
+
+	document.querySelector("button").onclick = function(){
+		multiplication();
+	}
+</script>	
+</body>
+</html>

@@ -1,0 +1,40 @@
+package test.com.oopsw.domitory;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import com.oopsw.dao.CustomerDAO;
+import com.oopsw.dao.CustomerDAOImpl;
+
+public class JunitRoomTest {
+	static CustomerDAO c;
+	
+	@BeforeClass
+	public static void allTestStart() throws Exception { //모든 테스트의 처음과 끝은 한번만 돌아가면 되기 때문에 static
+		//System.out.println("allTestStart()");
+		c = new CustomerDAOImpl();
+	}
+
+	@AfterClass 
+	public static void allTestEnd() throws Exception {
+		System.out.println("allTestEnd()");
+	}
+	@Before
+	public void setUp() throws Exception {
+	}
+
+	@After
+	public void tearDown() throws Exception {
+	}
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}

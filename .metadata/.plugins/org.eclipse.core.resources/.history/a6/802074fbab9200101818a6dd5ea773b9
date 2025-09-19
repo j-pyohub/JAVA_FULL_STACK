@@ -1,0 +1,31 @@
+package com.oopsw.servlet;
+
+import java.io.IOException;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+/**
+ * Servlet implementation class MemoryServlet
+ */
+@WebServlet("/memory")
+public class MemoryServlet extends HttpServlet {
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String cmd = request.getParameter("cmd");
+		
+		//cmd의 값을 구분해서 메모리에 저장
+		request.setAttribute("r1", cmd);
+		HttpSession session = request.getSession(true); //매개인자o -> 확실히 만듦. 로그인, 쇼핑몰에서 오늘 본 상품 정보 같은 업무
+		session.setAttribute("s1", "session " + cmd);
+		ServletContext application = request.getServletContext();
+		if (application.getAttribute("info") == null)
+			application.setAttribute("info", "ff"); //ex. 로그인한 사람 이름: value에 collection으로 넣을 수 있음. 
+		request.getRequestDispatcher("memory.jsp").forward(request, response);
+	}
+
+}

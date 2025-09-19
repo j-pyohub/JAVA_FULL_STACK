@@ -1,0 +1,21 @@
+package com.oopsw.model;
+
+public class MemberDAO {
+	
+	public MemberDAO(){
+		//1.2
+	}
+
+	public String addMember(MemberVO memberVO) {
+		String name = null;
+		//JDBC insert
+		if (memberVO != null && !memberVO.getMemberId().equals("admin"))
+			name = memberVO.getName();
+		 return name;
+	}
+
+	public void login(MemberVO memberVO) {
+		
+	}
+
+}
