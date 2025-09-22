@@ -18,14 +18,18 @@ public class LoginAction implements Action{
 		String memberId = request.getParameter("memberId");
 		String pw = request.getParameter("pw");
 		
-		String resultName = new MemberDAO().login(memberId, pw);
-		if (resultName != null){
-			HttpSession session = request.getSession(true);
-			//로그인 상태 체크, 기타 필요한 정보 저장
-			session.setAttribute("loginOK", memberId); //primary key로 로그인 체크
-			session.setAttribute("loginName", resultName);
-			//session.setAttribute("info", new MemberVO(memberId, resultName)); => 한번에 collection으로 넣어도 됨
-			url = "getVisitors.jsp";
+		try{
+			String resultName = new MemberDAO().login(memberId, pw);
+			if (resultName != null){
+				HttpSession session = request.getSession(true);
+				//로그인 상태 체크, 기타 필요한 정보 저장
+				session.setAttribute("loginOK", memberId); //primary key로 로그인 체크
+				session.setAttribute("loginName", resultName);
+				//session.setAttribute("info", new MemberVO(memberId, resultName)); => 한번에 collection으로 넣어도 됨
+				url = "getVisitors.jsp";
+			}
+		} catch(Exception e){
+			e.printStackTrace();
 		}
 		
 		return url;

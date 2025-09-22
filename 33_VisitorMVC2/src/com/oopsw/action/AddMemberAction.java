@@ -21,14 +21,18 @@ public class AddMemberAction implements Action{
 		String memberId = request.getParameter("memberId");
 		String pw = request.getParameter("pw");
 		String name = request.getParameter("name");
-		
-		String resultName = new MemberDAO().addMember(new MemberVO(memberId, pw, name));
-		 /**addMember의 매개인자 종류와 개수를 new MemberVO로 해 놓으면, 요구사항이 변경되어도 인터페이스 구조는 바뀌지 않음.
-		  * -> 구현부만 바꾸면 되기 때문에 유지보수하기 용이함*/
-		if (resultName != null){
-			request.setAttribute("message", resultName);
-			//url = "login.html";
-			url = "login.jsp";
+	
+		try{
+			String resultName = new MemberDAO().addMember(new MemberVO(memberId, pw, name));
+			 /**addMember의 매개인자 종류와 개수를 new MemberVO로 해 놓으면, 요구사항이 변경되어도 인터페이스 구조는 바뀌지 않음.
+			  * -> 구현부만 바꾸면 되기 때문에 유지보수하기 용이함*/
+			if (resultName != null){
+				request.setAttribute("message", resultName);
+				//url = "login.html";
+				url = "login.jsp";
+			}
+		} catch(Exception e){
+			e.printStackTrace();
 		}
 		
 		return url;

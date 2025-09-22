@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.util.Scanner"/>
-<fullyQualifiedTypeName name="java.lang.RuntimeException"/>
-<fullyQualifiedTypeName name="com.oopsw.member.NameLengthException"/>
-<fullyQualifiedTypeName name="javax.net.ssl.HandshakeCompletedEvent"/>
-<fullyQualifiedTypeName name="LottoNumber"/>
-<fullyQualifiedTypeName name="java.util.Random"/>
 <fullyQualifiedTypeName name="java.util.HashSet"/>
 <fullyQualifiedTypeName name="java.util.Properties"/>
 <fullyQualifiedTypeName name="java.util.Set"/>
@@ -29,15 +23,10 @@
 <fullyQualifiedTypeName name="javax.naming.spi.DirStateFactory.Result"/>
 <fullyQualifiedTypeName name="com.oopsw.dao.CustomerDAO"/>
 <fullyQualifiedTypeName name="com.oopsw.dao.CustomerDAOImpl"/>
-<fullyQualifiedTypeName name="java.sql.Connection"/>
 <fullyQualifiedTypeName name="com.oopsw.domitory.ManagerVO"/>
-<fullyQualifiedTypeName name="java.util.Collection"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="com.oopsw.domitory.RoomVO"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="com.oopsw.domitory.StudentVO"/>
-<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
-<fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="com.oopsw.domitory.StudentDAO"/>
 <fullyQualifiedTypeName name="com.oopsw.domitory.StudentImpl"/>
 <fullyQualifiedTypeName name="com.oopsw.domitory.ManagerImpl"/>
@@ -46,7 +35,6 @@
 <fullyQualifiedTypeName name="com.oopsw.domitory.RoomDAO"/>
 <fullyQualifiedTypeName name="com.oopsw.domitory.RoomImpl"/>
 <fullyQualifiedTypeName name="java.io.PrintWriter"/>
-<fullyQualifiedTypeName name="java.sql.Date"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="javax.servlet.ServletContext"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
@@ -55,9 +43,21 @@
 <fullyQualifiedTypeName name="com.oopsw.action.Action"/>
 <fullyQualifiedTypeName name="com.oopsw.action.ActionFactory"/>
 <fullyQualifiedTypeName name="com.oopsw.action.AddMemberUIAction"/>
-<fullyQualifiedTypeName name="com.oopsw.model.MemberDAO"/>
-<fullyQualifiedTypeName name="com.oopsw.model.MemberVO"/>
 <fullyQualifiedTypeName name="com.oopsw.action.LoginUIAction"/>
 <fullyQualifiedTypeName name="sun.rmi.log.LogOutputStream"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+<fullyQualifiedTypeName name="org.junit.BeforeClass"/>
+<fullyQualifiedTypeName name="com.oopsw.model.MemberDAO"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
+<fullyQualifiedTypeName name="java.sql.SQLException"/>
+<fullyQualifiedTypeName name="java.sql.Date"/>
+<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="java.util.Collection"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.oopsw.model.VisitorsVO"/>
+<fullyQualifiedTypeName name="com.oopsw.model.VisitorsDAO"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="com.oopsw.model.MemberVO"/>
 </qualifiedTypeNameHistroy>
