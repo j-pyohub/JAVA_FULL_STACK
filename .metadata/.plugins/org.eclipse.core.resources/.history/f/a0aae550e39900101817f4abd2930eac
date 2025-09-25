@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1>회원가입</h1>
+<form action="controller?cmd=addMemberAction" method="post">
+	id:  <input name="memberId"><span></span><br>
+	pw:  <input type="password" name="pw"><br>
+	pw확인:  <input type="password"><span id = "doubleCheck">중복체크</span><br>
+	name: <input name="name"><br>
+	
+	<input type="submit" value="작성">
+	<input type="reset" value="취소">
+</form>
+<script type = "text/javascript"> // 동작하기 위해서 미리 공간 만들어놓는 게 중요
+	//0. 미리 정의
+	const xhr = new XMLHttpRequest();
+	
+	//2. background 공간 만들기
+	xhr.onload = function(){
+		let jsonObject = JSON.parse(xhr.responseText);
+		let message = "  아이디 중복 가입 안됨";
+		if(jsonObject.result)
+			message = "  가입 가능";
+		document.querySelector("span").innerHTML=message;
+		
+	}
+	//1. 이벤트
+	document.querySelector("input").onchange = function(){
+		//3. 서버로 전달
+		let memberId = this.value;
+		xhr.open("get", "controller?cmd=idCheckAction&memberId="+memberId, true); //url 넘김. true: 비동기 통신으로 가겠다~
+		xhr.send(); //flush처럼 send 해 줘야, 서버로 넘어감
+		
+	}
+
+</script>
+</body>
+</html>

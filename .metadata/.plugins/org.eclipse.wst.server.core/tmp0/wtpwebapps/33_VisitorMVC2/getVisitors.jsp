@@ -1,8 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix= "c" %>
 
-${loginName}님 환영합니다 <a href = "controller?cmd=logoutAction">logout</a>
-<a href = "#">login</a>
+<c:if test="${loginOK == null}">
+	<script>
+		location.href = "controller";
+	</script>
+</c:if>
+
+	${loginName}님 환영합니다 <a href = "controller?cmd=logoutAction">logout</a>
+	
+	
 <h1>회원 전용 방명록</h1>
 
 <div> 
@@ -18,14 +26,24 @@ ${loginName}님 환영합니다 <a href = "controller?cmd=logoutAction">logout</
 <a href = "#">박명록 작성</a>
 
 <div>
-	<div><span>
-			<textarea rows="2" cols="40">로그인한 사람 게시물</textarea>
-		</span>
-		<span>2025-09-17</span>
-		<a href = "#">수정</a>  <a href = "#">삭제</a>
-	</div>
-	<div>
-		<span>어서오세요</span>
-		<span>2025-09-16</span>
-	</div>
+
+<c:forEach items="${visitors}" var = "vo">
+	<c:choose>
+		<c:when test="${loginOK  eq vo.memberId}">
+			<div><span>
+					<textarea rows="2" cols="40">${vo.contents }</textarea>
+				</span>
+				<span>2025-09-17</span>
+				<a href = "#">수정</a>  <a href = "controller?cmd=deleteVisitor&visitorNo=${vo.visitorNoSeq }">삭제</a>
+			</div>
+		</c:when>
+		<c:otherwise>
+		<div>
+			<span> ${vo.contents } </span>
+			<span> ${vo.inDate } </span>
+		</div>
+		</c:otherwise>
+	</c:choose>
+</c:forEach>
+
 </div>

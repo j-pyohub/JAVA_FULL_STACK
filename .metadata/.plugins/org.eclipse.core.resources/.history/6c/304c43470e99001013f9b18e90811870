@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1> 의사 주간 근무표 </h1>
+
+<table>
+	<tr>
+		<th>이름</th>
+		<th>진료과</th>
+		<th>9/15 월</th>
+		<th>9/16 화</th>
+		<th>9/17 수</th>
+		<th>9/18 목</th>
+		<th>9/19 금</th>
+		<th>9/20 토</th>
+		<th>9/21 일 </th>
+ 	</tr>
+ 	<tr>
+ 		<td>김의사</td>
+ 		<td>박원장</td>
+ 		<td>원장</td>
+ 		<td>나신경</td>
+ 		<td>홍길동</td>
+ 		<td>사공외과</td>
+ 		<td>이명의</td>
+ 		<td>김철수</td>
+
+</table>
+
+</body>
+</html> 

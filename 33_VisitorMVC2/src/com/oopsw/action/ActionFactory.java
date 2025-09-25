@@ -9,6 +9,9 @@ public class ActionFactory {
 		Action a = null;
 		//±¸ÇöºÎ
 		switch(cmd){
+		case "idCheckAction":
+			a = new IdCheckAction();
+			break;		
 		case "logoutAction":
 			a = new LogoutAction();
 			break;

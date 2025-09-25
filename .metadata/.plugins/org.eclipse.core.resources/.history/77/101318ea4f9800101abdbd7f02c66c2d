@@ -1,0 +1,81 @@
+package com.oopsw.model;
+
+import java.sql.Date;
+
+public class VisitorsVO {
+	private int visitorNoSeq;
+	private String memberId;
+	private String contents;
+	private Date inDate;
+	private Date upDate;
+	
+	
+	public VisitorsVO(){}
+	
+	public VisitorsVO(int visitorNoSeq, String memberId, String contents, Date inDate) {
+		setVisitorsNoSeq(visitorNoSeq);
+		setMemberId(memberId);
+		setContents(contents);
+		setInDate(inDate);
+	}
+
+
+
+	public VisitorsVO(int visitorNoSeq, String memberId, String contents, Date upDate) {
+		setVisitorsNoSeq(visitorNoSeq);
+		setMemberId(memberId);
+		setContents(contents);
+		setInDate(upDate);
+	}
+
+	public Date getUpDate() {
+		return upDate;
+	}
+
+	public void setUpDate(Date upDate) {
+		this.upDate = upDate;
+	}
+
+	public int getVisitorsNoSeq() {
+		return visitorNoSeq;
+	}
+
+	public void setVisitorsNoSeq(int visitorNoSeq) {
+		this.visitorNoSeq = visitorNoSeq;
+	}
+	
+		public String getMemberId() {
+		return memberId;
+	}
+
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
+	}
+
+	public String getContents() {
+		return contents;
+	}
+
+	public void setContents(String contents) {
+		this.contents = contents;
+	}
+
+	public Date getInDate() {
+		return inDate;
+	}
+
+	public void setInDate(Date inDate) {
+		this.inDate = inDate;
+	}
+
+	@Override
+	public String toString() {
+		return "VisitorsVO [visitorNoSeq=" + visitorNoSeq + ", contents=" + contents + ", inDate=" + inDate + "]";
+	}
+
+
+	
+	
+
+	
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>로그인</h1>
+<form action = "controller?cmd=loginAction" method="post">
+	id:  <input name = "memberId"><br>
+	pw:  <input type="password" name = "pw"><br>
+	<input type="submit" value="로그인">
+	<input type="reset" value="취소">
+	<a href="#">ID 찾기</a> <a href="controller?cmd=addMemberUI">회원가입</a>
+</form>
+<script type = "text/javascript">
+	// 0. 미리 정의
+	const xhr = new XMLHttpRequest();
+
+
+</script>
+</body>
+</html>

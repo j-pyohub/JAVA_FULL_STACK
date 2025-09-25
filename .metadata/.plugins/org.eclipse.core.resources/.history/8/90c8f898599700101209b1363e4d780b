@@ -1,0 +1,32 @@
+package test.com.oopsw.model;
+
+import static org.junit.Assert.*;
+
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import com.oopsw.model.MemberDAO;
+
+//TDD - 테스트코드를 미리 만들어놓고, DAO 만들기
+//서버 안 띄우고 테스트 가능 -> 순수 자바 코드는 환경에 구애 없이 테스트 가능 (=JavaBean => EJB(서버에 종속한 코딩) => Spring POJO)
+public class memberDAOTest {
+	static MemberDAO dao;
+	@BeforeClass
+	public static void start() throws Exception{
+		dao = new MemberDAO();
+	}
+	
+	
+	@Test
+	public void loginTest() {
+		assertNull(dao.login("xxx", "ppp"));
+		assertEquals(dao.login("wodyd0810", "qwerty"), "심재용");
+	}
+	
+	@Test
+	public void memberIdDupliCheck() {
+		assertTrue(dao.memberIdDupliCheck("xxx"));
+		assertFalse(dao.memberIdDupliCheck("wodyd0810"));
+	}
+
+}

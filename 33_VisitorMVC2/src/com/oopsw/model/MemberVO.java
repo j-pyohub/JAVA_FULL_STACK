@@ -11,6 +11,7 @@ public class MemberVO {
 		setPw(pw);
 		setName(name);
 	}
+	
 
 	/**equals, hashcode는 잘 안 씀. db에서 distinct나 primary로 중복체크를 이미 하기 때문*/
 	

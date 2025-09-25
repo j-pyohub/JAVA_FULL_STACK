@@ -1,0 +1,23 @@
+package test.com.oopsw.model;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+
+import com.oopsw.model.VisitorsDAO;
+import com.oopsw.model.VisitorsVO;
+
+public class visitorsDAOTestMain {
+	public static void main(String[] args) throws ClassNotFoundException, SQLException  {
+		VisitorsDAO v = new VisitorsDAO();
+		Collection<VisitorsVO> list = new ArrayList<>();
+		list = v.getVisitorsName("이");
+		
+        Iterator<VisitorsVO> iterator = list.iterator();
+        while (iterator.hasNext()) { // 다음 요소가 있는지 확인
+				list.add();
+            System.out.println(iterator.next()); // 다음 요소를 가져와 출력
+        }
+	}
+}

@@ -1,0 +1,101 @@
+package com.oopsw.model;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
+
+public class VisitorsDAO {
+	private Connection conn;
+	public VisitorsDAO() throws ClassNotFoundException, SQLException{
+		//1.2
+		//1. 드라이버 로딩
+		String className = "oracle.jdbc.driver.OracleDriver";
+		Class.forName(className);
+		System.out.println("1. Driver loading OK");
+		
+		String uri = "jdbc:oracle:thin:@127.0.0.1:1521:XE";
+		String id = "hr";
+		String pw = "hr";
+		conn = DriverManager.getConnection(uri, id, pw);		
+		System.out.println("2. 연결 OK");
+	}
+	
+	public boolean writeVisitors(String memberId, String contents) {
+		boolean result = false;
+		String sql = "insert into visitors (visitor_no_seq, member_id, contents, in_date) values (visitor_no_seq.nextval, ?, ?, sysdate)";
+		try{
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberId);
+			pstmt.setString(2, contents);
+			result = pstmt.executeUpdate() == 1;
+		} catch(SQLException e){
+			e.printStackTrace();
+		}
+			
+		return result;
+	}
+
+	public boolean editVisitors(String contents, int visitorNoSeq) {
+		boolean result = false;
+		String sql = "update visitors set contents = ?, up_date = sysdate where visitor_no_seq = ?";
+		try{
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, contents);
+			pstmt.setInt(2, visitorNoSeq);
+			result = pstmt.executeUpdate() == 1;
+		} catch(SQLException e){
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public boolean deleteVisitors(int visitorNoSeq) {
+		boolean result = false;
+		String sql = "update visitors set del_flag = sysdate where visitor_no_seq = ?";
+		try{
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, visitorNoSeq);
+			result = pstmt.executeUpdate() == 1;
+		} catch(SQLException e){
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public Collection<VisitorsVO> getVisitorsName(String name) {
+		Collection<VisitorsVO> list = new ArrayList<>();
+		String sql = "select contents,in_date from visitors where member_id"
+				+ " in (select member_id from members where name like '%?%') and del_flag is null";
+		try{
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, name);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next())
+				list.add(new VisitorsVO(rs.getString(1), rs.getDate(2)));
+		} catch(SQLException e){
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	public Collection<VisitorsVO> getVisitorsContents(String contents) {
+		Collection<VisitorsVO> list = new ArrayList<>();
+		String sql = "select contents, in_date from visitors where contents like '%?%' and del_flag is null";
+		try{
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, contents);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next())
+				list.add(new VisitorsVO(rs.getString(1), rs.getDate(2)));
+		} catch(SQLException e){
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+
+}

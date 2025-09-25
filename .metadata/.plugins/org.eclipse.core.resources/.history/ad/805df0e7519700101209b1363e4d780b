@@ -1,0 +1,25 @@
+package test.com.oopsw.model;
+
+import static org.junit.Assert.*;
+
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import com.oopsw.model.MemberDAO;
+
+public class memberDAOTest {
+	static MemberDAO dao;
+	@BeforeClass
+	public static void start() throws Exception{
+		dao = new MemberDAO();
+	}
+	
+	
+	@Test
+	public void loginTest() {
+		assertNull(dao.login("xxx", "ppp"));
+		assertEquals(dao.login("jeon", "1234"), "ȫ�浿");
+		
+	}
+
+}

@@ -1,0 +1,36 @@
+package com.oopsw.model;
+
+import java.sql.Date;
+
+public class VisitorsVO {
+	private String contents;
+	private Date inDate;
+	
+	public VisitorsVO(){}
+	
+	public VisitorsVO(String contents, Date inDate) {
+		setContents(contents);
+		setInDate(inDate);
+	}
+
+	public String getContents() {
+		return contents;
+	}
+
+	public void setContents(String contents) {
+		this.contents = contents;
+	}
+
+	public Date getInDate() {
+		return inDate;
+	}
+
+	public void setInDate(Date inDate) {
+		this.inDate = inDate;
+	}
+
+	
+	
+
+	
+}

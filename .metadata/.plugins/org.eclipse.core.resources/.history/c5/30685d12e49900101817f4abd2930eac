@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1>회원가입</h1>
+<form action="controller?cmd=addMemberAction" method="post">
+	id:  <input name="memberId"><span id = "idCheck"></span><br>
+	pw:  <input type="password" name="pw"><br>
+	pw확인:  <input type="password"><span>중복체크</span><br>
+	name: <input name="name"><br>
+	
+	<input type="submit" value="작성">
+	<input type="reset" value="취소">
+</form>
+<script type = "text/javascript">
+	//window.onload = function(){alert('hello');}
+	$(document).ready(function(){alert('jquery')}); //매개인자에 함수를 넣기도 함
+</script>
+</body>
+</html>

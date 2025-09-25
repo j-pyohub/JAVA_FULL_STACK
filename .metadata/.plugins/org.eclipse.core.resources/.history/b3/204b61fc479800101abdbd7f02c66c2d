@@ -1,0 +1,26 @@
+package com.oopsw.model;
+
+import java.util.List;
+import java.util.Map;
+
+import org.apache.ibatis.session.SqlSession;
+
+public class LoginDAO {
+	//db에서 중복 걸러져 나오니까 list. vo 안 만든 상황에는 Map. key:string, value:다양한값->Object
+	public List<Map<String, Object>> visitors = null;
+	
+	public String loginMybatis(MemberVO vo){
+		String name = null;
+		SqlSession conn = DBCP.getSqlSessionFactory().openSession();
+		name = (String) conn.selectOne("memberMapper.selectLogin", vo);
+		conn.close();
+		return name;
+	}
+	
+	public void addMemberMybatis(MemberVO vo){
+		SqlSession conn = DBCP.getSqlSessionFactory().openSession();
+		conn.insert("memberMapper.selectLogin", vo);
+		conn.commit();
+		conn.close();
+	}
+}

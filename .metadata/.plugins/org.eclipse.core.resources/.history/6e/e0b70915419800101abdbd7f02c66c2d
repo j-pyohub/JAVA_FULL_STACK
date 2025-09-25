@@ -1,0 +1,14 @@
+package com.oopsw.model;
+
+import org.apache.ibatis.session.SqlSession;
+
+public class LoginDAO {
+	
+	public String loginMybatis(MemberVO vo){
+		String name = null;
+		SqlSession conn = DBCP.getSqlSessionFactory().openSession();
+		name = (String) conn.selectOne("memberMapper.selectLogin", vo);
+		conn.close();
+		return name;
+	}
+}

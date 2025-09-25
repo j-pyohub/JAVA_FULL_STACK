@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
+import com.oopsw.model.LoginDAO;
 import com.oopsw.model.MemberDAO;
 import com.oopsw.model.MemberVO;
 
@@ -21,20 +22,24 @@ public class AddMemberAction implements Action{
 		String memberId = request.getParameter("memberId");
 		String pw = request.getParameter("pw");
 		String name = request.getParameter("name");
+		String resultName = null;
 	
 		try{
-			String resultName = new MemberDAO().addMember(new MemberVO(memberId, pw, name));
+			//String resultName = new MemberDAO().addMember(new MemberVO(memberId, pw, name)); //로그인 시도마다 DAO메모리에 올라감
 			 /**addMember의 매개인자 종류와 개수를 new MemberVO로 해 놓으면, 요구사항이 변경되어도 인터페이스 구조는 바뀌지 않음.
 			  * -> 구현부만 바꾸면 되기 때문에 유지보수하기 용이함*/
-			if (resultName != null){
-				request.setAttribute("message", resultName);
-				//url = "login.html";
-				url = "login.jsp";
-			}
+			// insert할 때 문제가 안 생기면 resultName에 name 넣음
+			new LoginDAO().addMemberMybatis(new MemberVO(memberId, pw, name));
+			resultName = name;
 		} catch(Exception e){
 			e.printStackTrace();
 		}
-		
+		//exception과 관련 없는 코드는 try블럭 밖에 두는 게 효율적
+		if (resultName != null){
+			request.setAttribute("message", resultName);
+			//url = "login.html";
+			url = "login.jsp";
+		}
 		return url;
 	}
 	

@@ -1,0 +1,10 @@
+package com.oopsw.model;
+
+public class LoginDAO {
+	
+	public String loginMybatis(MemberVO vo){
+		String name = null;
+		name = (String) DBCP.getSqlSessionFactory().openSession().selectOne("memberMapper.selectLogin", vo)
+		return name;
+	}
+}
