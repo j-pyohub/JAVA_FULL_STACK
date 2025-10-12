@@ -6,15 +6,20 @@
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="end" key="selection"/>
+		<item value="" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="number2"/>
-			<item value="number1"/>
-			<item value="check_out"/>
+			<item value="CRMProject"/>
+			<item value="연락처"/>
+			<item value="번호"/>
+			<item value="전화번호"/>
+			<item value="닫기"/>
+			<item value="e"/>
+			<item value="상세"/>
+			<item value="main"/>
 		</list>
 		<list key="replacehistory">
 			<item value="end"/>
@@ -24,10 +29,10 @@
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="261" key="DIALOG_WIDTH"/>
-		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
-		<item value="381" key="DIALOG_HEIGHT"/>
-		<item value="838" key="DIALOG_X_ORIGIN"/>
-		<item value="274" key="DIALOG_Y_ORIGIN"/>
+		<item value="357" key="DIALOG_WIDTH"/>
+		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
+		<item value="513" key="DIALOG_HEIGHT"/>
+		<item value="193" key="DIALOG_X_ORIGIN"/>
+		<item value="192" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>
