@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+	var a1 = [];
+	let a2 = [];
+	var a3 = new Array();
+	let v4 = new Array();
+	
+	var scores = [40, 50, 77];
+	for (var i = 0; i < scores.length; i++) {
+		console.log(scores[i]);
+	}
+	
+	scores[scores.length] = 99;
+	scores[1] = 88;
+	scores[10] = 88;
+	
+	for ( var k in scores) {
+		console.log(k, scores[k]);
+	}
+	
+	a3.push(1);
+	a3.push([10, 20, 30]);
+	console.log(a3.pop());
+
+	var scores2 = [["국어", 10], ["영어", 20], [30, "과학"]];
+	
+		
+	
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

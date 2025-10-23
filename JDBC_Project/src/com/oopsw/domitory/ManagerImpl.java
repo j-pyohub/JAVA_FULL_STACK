@@ -1,0 +1,95 @@
+package com.oopsw.domitory;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class ManagerImpl implements ManagerDAO{
+	private Connection conn;
+	
+	public ManagerImpl() throws ClassNotFoundException, SQLException{
+		String className = "oracle.jdbc.driver.OracleDriver";
+		Class.forName(className);
+		System.out.println("1. Driver loading OK");
+		
+		String uri = "jdbc:oracle:thin:@127.0.0.1:1521:XE";
+		String id = "hr";
+		String pw = "hr";
+		conn = DriverManager.getConnection(uri, id, pw);		
+		System.out.println("2. 연결 OK");
+	}
+	
+	@Override
+	public boolean login(String id, String pw) { //미완성
+		String sql = "select manager_id, password from manager_test where manager_id = ? and password = ?";
+		boolean result = false;
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, pw);
+			ResultSet rs = pstmt.executeQuery();
+			if (rs.next()) result = true;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	@Override
+	public boolean addLog(String id) {
+		String sql = "insert into manager_log_test (login_number, manager_id, login_ip, login_date_time) "
+					+ "values (login_number.nextval, ?, '211.108.000.000', sysdate)";
+		boolean result = false;
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			result = pstmt.executeUpdate() == 1;
+			pstmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return result;
+	}
+
+	@Override
+	public ManagerVO getLog(String id) {
+		String sql = "select login_ip, login_date_time from manager_log_test where login_number " +
+				"= (select max(login_number) from manager_log_test where manager_id = ?)";
+		PreparedStatement pstmt;
+		ManagerVO result = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			ResultSet rs = pstmt.executeQuery();
+			if (rs.next()) result = new ManagerVO(rs.getString(1), rs.getDate(2));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return result;
+	}
+
+	@Override
+	public String getManagerName(String id) {
+		String sql = "select name from manager_test where manager_id = ?";
+		PreparedStatement pstmt;
+		String result = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			ResultSet rs = pstmt.executeQuery();
+			if (rs.next()) result = rs.getString(1);
+			rs.close();
+			pstmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
+}
