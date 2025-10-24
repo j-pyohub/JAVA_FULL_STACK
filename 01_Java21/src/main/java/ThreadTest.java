@@ -20,7 +20,7 @@ public class ThreadTest {
             }
         };
         new Thread(r).start();
-        //3. 람다식: 함수를 호출함과 동시에 오버라이딩
+        //3. 람다식: 함수를 호출함과 동시에 오버라이딩. 매서드 1개일 때
         new Thread(()->{
             System.out.println("화살표 함수 정의");
         }).start();
