@@ -1,0 +1,6 @@
+
+spring:
+  application:
+    name: ASimpleSB
+server:
+  port: 5432
