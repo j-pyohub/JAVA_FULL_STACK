@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: BController
+  mvc:
+    view:
+      suffix: .jsp
+      prefix: /WEB-INF/views/
+
+
+server:
+  port: 5432

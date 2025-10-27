@@ -1,0 +1,3 @@
+view.jsp <br>
+
+${message}
