@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-@Controller
+@Controller //servlet과 매핑
 public class UserController {
     @GetMapping("/")
     @ResponseBody
@@ -16,7 +16,7 @@ public class UserController {
     @GetMapping("/user") //request
     @ResponseBody           //response
     public String user() {
-        return "<h2>user</h2>";
+        return "<h2>user</h2>"; // --> responseBody를 사용하면, 서버에서 html를 문자열로 내보내서 안 좋음.
     }
     @GetMapping("/view")
     public String view(Model model) { //request에 넣으면 조작이 쉬워서, Model 사용
