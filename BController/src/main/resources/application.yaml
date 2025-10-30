@@ -5,7 +5,18 @@ spring:
     view:
       suffix: .jsp
       prefix: /WEB-INF/views/
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@127.0.0.1:1521/xe
+    username: hr
+    password: hr
+mybatis:
+  mapper-locations: classpath:mappers/*.xml
 
 
 server:
   port: 5432
+logging:
+  level:
+    com.oopsw : error
+

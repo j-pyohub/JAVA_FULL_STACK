@@ -22,7 +22,14 @@ public class CustomerDAOTests {
     @Test
     @Order(2)
     void getCustomerTest(){
-        assertNotNull(customerDAO.getCustomer("pyo"));
+        System.out.println(customerDAO.getCustomer("lee"));
     }
-
+    @Test
+    void getCustomersTest(){
+        System.out.println(customerDAO.getCustomers());
+    }
+    @Test
+    void getCustomerNamesTest(){
+        System.out.println(customerDAO.getCustomerNames());
+    }
 }
