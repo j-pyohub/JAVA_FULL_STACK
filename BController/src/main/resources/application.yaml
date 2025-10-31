@@ -18,5 +18,5 @@ server:
   port: 5432
 logging:
   level:
-    com.oopsw : error
+    com.oopsw: error
 
