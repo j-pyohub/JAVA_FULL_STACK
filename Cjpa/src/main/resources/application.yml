@@ -1,11 +1,16 @@
 spring:
   application:
     name: Cjpa
+#  datasource:
+#    driver-class-name: oracle.jdbc.OracleDriver
+#    url: jdbc:oracle:thin:@127.0.0.1:1521/xe
+#    username: hr
+#    password: hr
   datasource:
-    driver-class-name: oracle.jdbc.OracleDriver
-    url: jdbc:oracle:thin:@127.0.0.1:1521/xe
-    username: hr
-    password: hr
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://127.0.0.1:3306/mydb
+    username: mydbid
+    password: mydbpw
   jpa: #??? ?? ???? ??, ??? ???? ?? ???? ?.
     open-in-view: false #jpa ?? ? ? ?? ?.
     generate-ddl: true #ddl ?? ??? ?

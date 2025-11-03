@@ -16,7 +16,8 @@ import java.sql.Timestamp;
 @Entity //Entity: DDL의 기초 자료
 public class Teachers {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "teacher_seq")
+    //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "teacher_seq") //오라클
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(nullable = false)
     private String name;
