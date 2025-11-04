@@ -1,13 +1,12 @@
 package com.oopsw.cjpa.controller;
 
 import com.oopsw.cjpa.service.MemberService;
+import com.oopsw.cjpa.vo.MemberVO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -42,4 +41,8 @@ public class MemberRestController {
     //특정 회원 포인트 확인
 
     //모든 회원 정보 확인
+    @GetMapping("members")
+    public List<MemberVO> getMembers(){ //어차피 200이라서, ResponseEntity쓸 필요 없음
+        return memberService.getMembers();
+    }
 }

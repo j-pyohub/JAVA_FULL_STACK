@@ -6,6 +6,9 @@ import com.oopsw.cjpa.vo.MemberVO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class MemberService {
@@ -36,4 +39,12 @@ public class MemberService {
     //특정 회원 포인트 확인
 
     //모든 회원 정보 확인
+    public List<MemberVO> getMembers() {
+        List<Members> members =  memberRepository.findAll();
+        List<MemberVO> resultMembers = new ArrayList<>(); //resultMembers를 생성했기 때문에, nullPointException 경우의 수 없음
+        for(Members m : members){
+            resultMembers.add(new MemberVO(m.getMemberId(), m.getPoint()));
+        }
+        return resultMembers;
+    }
 }
