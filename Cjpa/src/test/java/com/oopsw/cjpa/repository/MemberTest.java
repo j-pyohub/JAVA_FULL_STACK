@@ -20,4 +20,10 @@ public class MemberTest {
             memberRepository.save(Members.builder().memberId("m_" + i).point(i).build());
         }
     }
+
+    @Test
+    void updatePoint() {
+        System.out.println(memberRepository.findById("pyo"));
+
+    }
 }

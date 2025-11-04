@@ -4,6 +4,7 @@ import com.oopsw.cjpa.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,6 +26,16 @@ public class MemberRestController {
     }
 
     //회원 포인트 수정
+    @PutMapping("member")
+    public ResponseEntity<Map<String, String>> mapResponseEntity(@RequestBody Map<String, String> member){ //requsetBody: json으로 던져 줌
+//        try {
+            memberService.updatePoint(member.get("memberId").toString(),
+                    Integer.parseInt(member.get("updatePoint").toString())); //return이 void라 result 변수 없어도 됨
+//        } catch (Exception e) {
+//            return ResponseEntity.status(400).body(Map.of("message", "update point fail"));
+//        } //but 군데군데 try/catch 때문에 중복코드 생김
+        return ResponseEntity.ok().body(Map.of("message", "update member success"));
+    }
 
     //회원 정보 삭제
 

@@ -13,4 +13,10 @@ public class MemberServiceTest {
     void addMember() {
         System.out.println(memberService.addMember("pyo", 200));
     }
+
+
+    @Test
+    void updateMember() {
+        memberService.updatePoint("pyffo", 500);
+    }
 }
