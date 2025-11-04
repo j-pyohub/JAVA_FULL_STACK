@@ -21,7 +21,11 @@ spring:
       hibernate:
         show_sql: true #????
         format_sql: true
-
+  thymeleaf:
+    suffix: .html #경로 설정
+    prefix: classpath:/templates/
+    cache: false
+    check-template-location: true
 
 server:
   port: 5432

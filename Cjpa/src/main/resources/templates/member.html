@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>template/member.html</h1>
+    <p th:text="${name}">xxx</p> <!--xxx 자리에는 디자인 할 때, 이 자리는 이거에요~ 하는 용도로 하면 됨-->
+    <p th:text="${session}">xxx</p>
+    <p th:text="${param}">xxx</p> <!--param: request데이터-->
+    <p th:text="${param.q}">xxx</p>
+</body>
+</html>
