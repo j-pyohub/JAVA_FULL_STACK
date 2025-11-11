@@ -5,7 +5,54 @@
     <title>Title</title>
 </head>
 <body>
-    <h1>static/view.html</h1>
-    static 폴더에 만들면 주소 쳐서 바로 넘어갈 수 있음 -> 보안 안 좋음
+    <h1>static/view.html => Rest API를 처리하기 위한 UI</h1>
+<!--    static 폴더에 만들면 주소 쳐서 바로 넘어갈 수 있음 -> 보안 안 좋음-->
+    <button id="getMember">Get</button>
+    <button id="addMember">Post</button>
+    <button id="updateMember">Put</button>
+    <button id="deleteMember">Delete</button>
+    <div><!--뿌리는 공간--></div>
 </body>
+<script type="text/javascript">
+    let divView=document.querySelector("div");
+    userEvent = function(){
+        fetch("http://127.0.0.1:5432/members", {
+            method : "get"
+        }).then(response => {
+            return response.json();
+        }).then(data => {
+            let m = "";
+            for (const i in data) {
+                m += (data[i].memberId + " " + data[i].point + "<br>");
+            }
+            divView.innerHTML = m;
+        }).catch(error => {
+            alret("get message : " + error);
+            console.error("get message : " + error);
+        });
+
+    }
+    //document.querySelector("#getMember").addEventListener("click", ()=>{})
+    //document.querySelector("#getMember").addEventListener("click", function(){})
+    document.querySelector("#getMember").addEventListener("click", userEvent);
+    document.querySelector("#addMember").addEventListener("click", ()=>{
+        // {
+        //     "memberId": "ppyo",
+        //     "updatePoint": "10"
+        // }
+        fetch("http://127.0.0.1:5432/member", {
+            method : "post",
+            headers : {
+                "Content-Type": "application/json"
+            },
+            body : JSON.stringify({memberId: "pyoppyo3", point: 10})
+        }).then(response => {
+            return response.json();
+        }).then(data => {
+            if(data.message == "add member success")
+             divView.innerHTML = "회원 등록 완료";
+        }).catch();
+    });
+
+</script>
 </html>
