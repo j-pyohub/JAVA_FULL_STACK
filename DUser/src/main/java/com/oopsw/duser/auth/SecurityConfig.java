@@ -15,7 +15,7 @@ public class SecurityConfig {
         http.csrf(csrf -> csrf.disable());
         http.authorizeHttpRequests(ar ->
                 ar.requestMatchers("/user/**").authenticated() //user로 되어 있는 경로들 접근제어
-                  .requestMatchers("/manager/**").hasAnyRole("ADMIN", "MANAGER")
+                  .requestMatchers("/manager/**").hasAnyRole("ADMIN", "MANAGER") //ROLE_ADMIN, ROLE_MANAGER 로 된 것들 알아서 매핑해줌
                   .requestMatchers("/admin/**").hasAnyRole("ADMIN") //permitAll: 접근 풀 수 있음
                   .anyRequest().permitAll());
 

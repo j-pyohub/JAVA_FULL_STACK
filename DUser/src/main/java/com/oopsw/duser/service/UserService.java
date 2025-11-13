@@ -34,6 +34,6 @@ public class UserService {
         //테이블에 등록 후 true/false 결정
         return userRepository.save(User.builder().username(userVO.getUsername())
                                     .password(bCryptPasswordEncoder.encode(userVO.getPassword()))
-                                    .email(userVO.getEmail()).role("ROLE_USER").build()) != null;
+                                    .email(userVO.getEmail()).role("ROLE_MANAGER").build()) != null;
     }
 }
