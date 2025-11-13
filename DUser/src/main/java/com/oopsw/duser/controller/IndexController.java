@@ -1,18 +1,24 @@
 package com.oopsw.duser.controller;
 
+import com.oopsw.duser.auth.PrincipalDetails;
 import com.oopsw.duser.service.UserService;
 import com.oopsw.duser.vo.UserVO;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.security.Principal;
+
 @Controller
 @RequiredArgsConstructor
 public class IndexController {
     private final UserService userService;
+
     @GetMapping("/")
     @ResponseBody
     public String index() {
@@ -62,11 +68,18 @@ public class IndexController {
 //        return "결과: " + userService.join(UserVO.builder().email(userRequest.getEmail())
 //                .username(userRequest.getUsername())
 //                .password(userRequest.getPassword()).build());
-        if(userService.join(UserVO.builder().email(userRequest.getEmail())
+        if (userService.join(UserVO.builder().email(userRequest.getEmail())
                 .username(userRequest.getUsername())
                 .password(userRequest.getPassword()).build()))
             return "redirect:/loginView";
         return "redirect:/joinView";
 
+    }
+
+    @Secured("ROLE_USER") //얘는 원래대로 ROLE_ 붙여야 함
+    @GetMapping("user_data")
+    @ResponseBody
+    public String getUserData(@AuthenticationPrincipal PrincipalDetails pd) { //로그인 정보 필요 시
+        return "user_data = " + pd.getUser().getEmail();
     }
 }

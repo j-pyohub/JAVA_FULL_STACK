@@ -13,6 +13,11 @@ public class PrincipalDetails implements UserDetails {
     public PrincipalDetails(User user) {
         this.user = user;
     }
+
+
+    public User getUser() {//모든 정보 보고 싶으면
+        return user;
+    }
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() { //인가 정보 여러개
         Collection<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>(); //권한 중복될 일x -> List
