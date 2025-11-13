@@ -4,7 +4,8 @@ import com.oopsw.duser.vo.UserVO;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Long> {
-    boolean existsByEmail(String email);
+    //중복 체크 - 회원가입 할 때는 없어야 하고, 로그인 할 때는 없으면 안 됨
+    //User findByEmail(String email);
 
-    boolean existsByUsername(String username);
+    User findByUsername(String username);
 }

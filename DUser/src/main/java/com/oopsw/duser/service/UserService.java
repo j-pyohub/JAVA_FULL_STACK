@@ -11,28 +11,29 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class UserService {
-    private final UserRepository userRepository;
-
+    //private final UserRepository userRepository;
     @Autowired //메모리에 올린 거 가져옴
     private BCryptPasswordEncoder bCryptPasswordEncoder;
+    @Autowired
+    private UserRepository userRepository;
 
     //회원가입
     public boolean join(UserVO userVO){
         //입력받은 데이터 중복 여부 확인
-        if (userRepository.existsByEmail(userVO.getEmail())){
+        if(userRepository.findByUsername(userVO.getUsername()) != null)
             return false;
-        }
-        if (userRepository.existsByUsername(userVO.getUsername())){
-            return false;
-        }
+//        if (userRepository.findByEmail(userVO.getEmail()) && userRepository.findByUsername(userVO.getUsername())){
+//            return false;
+//        }
         //UserRequest -> UserVO (비밀번호, Role)
-        userVO.setPassword(bCryptPasswordEncoder.encode(userVO.getPassword()));
-        userVO.setRole("ROLE_USER");
+//        userVO.setPassword(bCryptPasswordEncoder.encode(userVO.getPassword()));
+//        userVO.setRole("ROLE_USER");
         //userVO.setRole("ROLE_ADMIN");
         //userVO.setRole("ROLE_MANAGER");
         //System.out.println(userVO);
         //테이블에 등록 후 true/false 결정
-        userRepository.save(User.builder().username(userVO.getUsername()).password(userVO.getPassword()).email(userVO.getEmail()).role(userVO.getRole()).build());
-        return true;
+        return userRepository.save(User.builder().username(userVO.getUsername())
+                                    .password(bCryptPasswordEncoder.encode(userVO.getPassword()))
+                                    .email(userVO.getEmail()).role("ROLE_USER").build()) != null;
     }
 }

@@ -56,12 +56,17 @@ public class IndexController {
     }
 
     @PostMapping("join")
-    @ResponseBody
+    //@ResponseBody //return redirect는 주소창으로 넘어가니 responseBody 지움
     public String join(UserRequest userRequest) { //request, vo, dto, map 다 해도 됨
-
         //return userRequest.toString();
-        return "결과: " + userService.join(UserVO.builder().email(userRequest.getEmail())
+//        return "결과: " + userService.join(UserVO.builder().email(userRequest.getEmail())
+//                .username(userRequest.getUsername())
+//                .password(userRequest.getPassword()).build());
+        if(userService.join(UserVO.builder().email(userRequest.getEmail())
                 .username(userRequest.getUsername())
-                .password(userRequest.getPassword()).build());
+                .password(userRequest.getPassword()).build()))
+            return "redirect:/loginView";
+        return "redirect:/joinView";
+
     }
 }
