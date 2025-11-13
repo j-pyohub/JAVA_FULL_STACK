@@ -25,10 +25,12 @@ class User{
             this.age = age;
             return this;
         }
-        public User point(int point){
-            this.point = point;
+
+    public User point(int point) {
+            if (point>=0)
+                this.point = point;
             return this;
-        }
+    }
         public User build(){
             return this;
         }
