@@ -19,7 +19,7 @@ public class CorsConfig {
         config.addAllowedOriginPattern("*");
         config.addAllowedHeader("*");
         config.addAllowedMethod("*"); //get, post, put, delete
-        config.setExposedHeaders(Arrays.asList("Access-Control-Allow-Headers", "Authrization")); //특정 헤더 지정 옵션
+        config.setExposedHeaders(Arrays.asList("Access-Control-Allow-Headers", "Authorization")); //특정 헤더 지정 옵션
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
     }
