@@ -5,6 +5,15 @@ spring:
     user:
       name: admin
       password: 1234
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 608635281012-b64c2mts34bnd5o49odii3kdf8fn3408.apps.googleusercontent.com
+            client-secret: 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
+            scope:
+              - profile
+              - email
 
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver

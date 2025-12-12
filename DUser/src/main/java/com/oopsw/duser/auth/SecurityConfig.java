@@ -21,17 +21,17 @@ public class SecurityConfig {
                   .requestMatchers("/admin/**").hasAnyRole("ADMIN") //permitAll: 접근 풀 수 있음
                   .anyRequest().permitAll());
 
-        //사용자 정의 UI 연동
-        http.formLogin(form -> form.loginPage("/loginView")  //redirect가 알아서 됨
-                .loginProcessingUrl("/login")
-                //.usernameParameter("email") //디폴트로 login의 파라미터는 username이 되어 있는데, 커스텀하고 싶으면 바꿀 수 있음
-                //어느 루트로 가든 기본 페이지로 지정
-                .defaultSuccessUrl("/user")
+                //사용자 정의 UI 연동
+                http.formLogin(form -> form.loginPage("/loginView")  //redirect가 알아서 됨
+                        .loginProcessingUrl("/login")
+                        //.usernameParameter("email") //디폴트로 login의 파라미터는 username이 되어 있는데, 커스텀하고 싶으면 바꿀 수 있음
+                        //어느 루트로 가든 기본 페이지로 지정
+                        .defaultSuccessUrl("/user")
                 .failureUrl("/joinView")
         );
 
-
-
+        //google login
+        http.oauth2Login(oauth2 -> oauth2.loginPage("/loginView")); //디폴트 로그인 연동 페이지 loginView
 
         return http.build();
     }
