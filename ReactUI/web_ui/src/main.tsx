@@ -11,13 +11,28 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 //import TimeApp from "./03_state/TimeApp";
 import StateApp from "./03_state/StateApp";
+import ToolbarApp from "./10_toolbar/ToolbarApp";
+import ListMapApp from "./11_ListKey/ListMapApp";
+import FormUIApp from "./12_form/FormUIApp";
+import UseCountApp from "./07_effect_useCounter/6_UseCountApp";
+import { Route } from "react-router";
+import RouterApp from "./13_router/RouterApp";
 
-//state
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <StateApp />
+    <RouterApp />
+    {/* <ToolbarApp />
+    <ListMapApp />
+    <FormUIApp />
+    <UseCountApp /> */}
   </StrictMode>
 )
+// //state
+// createRoot(document.getElementById("root")!).render(
+//   <StrictMode>
+//     <StateApp />
+//   </StrictMode>
+// )
 
 
 //state 변경에 따른 UI 업데이트 처리 - 1초마다 현재 시간으로 갱신
